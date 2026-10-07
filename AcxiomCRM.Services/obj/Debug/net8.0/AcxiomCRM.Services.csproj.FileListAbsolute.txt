@@ -1,0 +1,15 @@
+D:\acxiom\AcxiomCRM.Services\bin\Debug\net8.0\AcxiomCRM.Services.deps.json
+D:\acxiom\AcxiomCRM.Services\bin\Debug\net8.0\AcxiomCRM.Services.dll
+D:\acxiom\AcxiomCRM.Services\bin\Debug\net8.0\AcxiomCRM.Services.pdb
+D:\acxiom\AcxiomCRM.Services\bin\Debug\net8.0\AcxiomCRM.Data.dll
+D:\acxiom\AcxiomCRM.Services\bin\Debug\net8.0\AcxiomCRM.Data.pdb
+D:\acxiom\AcxiomCRM.Services\obj\Debug\net8.0\AcxiomCRM.Services.csproj.AssemblyReference.cache
+D:\acxiom\AcxiomCRM.Services\obj\Debug\net8.0\AcxiomCRM.Services.GeneratedMSBuildEditorConfig.editorconfig
+D:\acxiom\AcxiomCRM.Services\obj\Debug\net8.0\AcxiomCRM.Services.AssemblyInfoInputs.cache
+D:\acxiom\AcxiomCRM.Services\obj\Debug\net8.0\AcxiomCRM.Services.AssemblyInfo.cs
+D:\acxiom\AcxiomCRM.Services\obj\Debug\net8.0\AcxiomCRM.Services.csproj.CoreCompileInputs.cache
+D:\acxiom\AcxiomCRM.Services\obj\Debug\net8.0\AcxiomCR.69F8B026.Up2Date
+D:\acxiom\AcxiomCRM.Services\obj\Debug\net8.0\AcxiomCRM.Services.dll
+D:\acxiom\AcxiomCRM.Services\obj\Debug\net8.0\refint\AcxiomCRM.Services.dll
+D:\acxiom\AcxiomCRM.Services\obj\Debug\net8.0\AcxiomCRM.Services.pdb
+D:\acxiom\AcxiomCRM.Services\obj\Debug\net8.0\ref\AcxiomCRM.Services.dll

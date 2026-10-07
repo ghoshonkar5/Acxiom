@@ -1,0 +1,11 @@
+@model IEnumerable<Microsoft.AspNetCore.Identity.IdentityRole>
+@{ ViewData["Title"] = "Roles"; }
+<div class="d-flex justify-content-between align-items-center mb-4"><h2 class="h4 font-weight-bold mb-0">Roles & Permissions</h2></div>
+<div class="card"><div class="card-body p-0"><div class="table-responsive"><table class="table table-hover mb-0">
+    <thead class="bg-light"><tr><th>Role Name</th><th>Normalized</th></tr></thead>
+    <tbody>
+        @foreach(var item in Model) {
+            <tr><td><div class="fw-medium text-primary">@item.Name</div></td><td>@item.NormalizedName</td></tr>
+        }
+    </tbody>
+</table></div></div></div>

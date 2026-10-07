@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - AcxiomCRM</title>
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+    
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+</head>
+<body>
+    @if (User.Identity?.IsAuthenticated == true)
+    {
+        <aside class="app-sidebar" id="sidebar">
+            <div class="sidebar-brand">
+                <i class="bi bi-heptagon-fill text-primary"></i> <span class="sidebar-brand-text">AcxiomCRM</span>
+            </div>
+            
+            <div class="nav-section">Workspace</div>
+            <a href="/" class="nav-link @(ViewContext.RouteData.Values["Controller"]?.ToString() == "Home" ? "active" : "")">
+                <i class="bi bi-grid-1x2"></i> <span class="nav-link-text">Dashboard</span>
+            </a>
+            <a href="/Customers" class="nav-link @(ViewContext.RouteData.Values["Controller"]?.ToString() == "Customers" ? "active" : "")">
+                <i class="bi bi-building"></i> <span class="nav-link-text">Customers</span>
+            </a>
+            <a href="/Leads" class="nav-link @(ViewContext.RouteData.Values["Controller"]?.ToString() == "Leads" ? "active" : "")">
+                <i class="bi bi-bullseye"></i> <span class="nav-link-text">Leads</span>
+            </a>
+            <a href="/Opportunities" class="nav-link @(ViewContext.RouteData.Values["Controller"]?.ToString() == "Opportunities" ? "active" : "")">
+                <i class="bi bi-briefcase"></i> <span class="nav-link-text">Opportunities</span>
+            </a>
+            <a href="/FollowUps" class="nav-link @(ViewContext.RouteData.Values["Controller"]?.ToString() == "FollowUps" ? "active" : "")">
+                <i class="bi bi-calendar-check"></i> <span class="nav-link-text">Follow-ups</span>
+            </a>
+            <a href="/Activities" class="nav-link @(ViewContext.RouteData.Values["Controller"]?.ToString() == "Activities" ? "active" : "")">
+                <i class="bi bi-activity"></i> <span class="nav-link-text">Activities</span>
+            </a>
+
+            <div class="nav-section">Insights</div>
+            <a href="/Reports" class="nav-link @(ViewContext.RouteData.Values["Controller"]?.ToString() == "Reports" ? "active" : "")">
+                <i class="bi bi-bar-chart-line"></i> <span class="nav-link-text">Reports</span>
+            </a>
+
+            @if (User.IsInRole("Admin") || User.IsInRole("Manager"))
+            {
+                <div class="nav-section">Administration</div>
+                @if (User.IsInRole("Admin"))
+                {
+                    <a href="/Users" class="nav-link @(ViewContext.RouteData.Values["Controller"]?.ToString() == "Users" ? "active" : "")">
+                        <i class="bi bi-people"></i> <span class="nav-link-text">Users</span>
+                    </a>
+                    <a href="/Roles" class="nav-link @(ViewContext.RouteData.Values["Controller"]?.ToString() == "Roles" ? "active" : "")">
+                        <i class="bi bi-shield-lock"></i> <span class="nav-link-text">Roles</span>
+                    </a>
+                }
+                <a href="/Audit" class="nav-link @(ViewContext.RouteData.Values["Controller"]?.ToString() == "Audit" ? "active" : "")">
+                    <i class="bi bi-file-earmark-text"></i> <span class="nav-link-text">Audit log</span>
+                </a>
+            }
+
+            <div class="nav-section">Developer</div>
+            <a href="/Developer" class="nav-link @(ViewContext.RouteData.Values["Controller"]?.ToString() == "Developer" ? "active" : "")">
+                <i class="bi bi-code-slash"></i> <span class="nav-link-text">API console</span>
+            </a>
+
+            <div class="user-badge mt-auto">
+                <div class="dropdown">
+                    <a href="#" class="d-flex align-items-center text-white text-decoration-none dropdown-toggle" id="dropdownUser1" data-bs-toggle="dropdown" aria-expanded="false">
+                        <div class="rounded-circle bg-primary d-flex align-items-center justify-content-center me-2" style="width: 32px; height: 32px;">
+                            @(User.Identity.Name?.Substring(0,2).ToUpper() ?? "U")
+                        </div>
+                        <div class="d-flex flex-column user-info" style="line-height: 1.2;">
+                            <strong>@(User.Identity.Name?.Split('@')[0])</strong>
+                            <small class="text-white-50">@((User.IsInRole("Admin")) ? "Admin" : (User.IsInRole("Manager") ? "Manager" : "Sales Executive"))</small>
+                        </div>
+                    </a>
+                    <ul class="dropdown-menu dropdown-menu-dark text-small shadow" aria-labelledby="dropdownUser1">
+                        <li><a class="dropdown-item" href="/Profile">Profile</a></li>
+                        <li><hr class="dropdown-divider"></li>
+                        <li><form method="post" action="/Auth/Logout"><button type="submit" class="dropdown-item text-danger">Sign out</button></form></li>
+                    </ul>
+                </div>
+            </div>
+        </aside>
+    }
+
+    <main class="@(User.Identity?.IsAuthenticated == true ? "app-main" : "")">
+        @if (User.Identity?.IsAuthenticated == true)
+        {
+            <header class="app-navbar">
+                <div class="d-flex align-items-center">
+                    <button class="btn d-md-none me-2" id="sidebar-toggle">
+                        <i class="bi bi-list fs-4"></i>
+                    </button>
+                    <button class="sidebar-desktop-toggle me-3 d-none d-md-inline-flex" id="sidebar-desktop-toggle">
+                        <i class="bi bi-layout-sidebar"></i>
+                    </button>
+                    <div class="text-muted text-uppercase" style="font-size: 0.8rem; letter-spacing: 0.05em; font-weight: 500;">
+                        <i class="bi bi-grid"></i> / @ViewData["Title"]
+                    </div>
+                </div>
+                
+                <div class="d-flex align-items-center gap-3">
+                    <div class="input-group" style="width: 250px;">
+                        <span class="input-group-text bg-transparent border-end-0"><i class="bi bi-search"></i></span>
+                        <input type="text" class="form-control border-start-0" placeholder="Search or jump to..." />
+                        <span class="input-group-text bg-transparent text-muted" style="font-size: 0.75rem;">⌘K</span>
+                    </div>
+                    
+                    <button class="theme-toggle" id="theme-toggle">
+                        <i class="bi bi-sun-fill"></i>
+                    </button>
+
+                    <div class="position-relative me-3">
+                        <i class="bi bi-bell fs-5 text-secondary"></i>
+                        <span class="position-absolute top-0 start-100 translate-middle p-1 bg-danger border border-light rounded-circle">
+                            <span class="visually-hidden">New alerts</span>
+                        </span>
+                    </div>
+
+                    <div class="role-pill @(User.IsInRole("Admin") ? "admin" : (User.IsInRole("Manager") ? "manager" : "sales"))">
+                        <span class="role-dot"></span>
+                        @((User.IsInRole("Admin")) ? "Admin" : (User.IsInRole("Manager") ? "Manager" : "Sales Executive"))
+                    </div>
+                </div>
+            </header>
+        }
+
+        <div class="app-content">
+            @RenderBody()
+        </div>
+    </main>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>

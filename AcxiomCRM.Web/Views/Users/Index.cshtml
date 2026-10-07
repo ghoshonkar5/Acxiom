@@ -1,0 +1,11 @@
+@model IEnumerable<AcxiomCRM.Data.Models.ApplicationUser>
+@{ ViewData["Title"] = "Users"; }
+<div class="d-flex justify-content-between align-items-center mb-4"><h2 class="h4 font-weight-bold mb-0">System Users</h2></div>
+<div class="card"><div class="card-body p-0"><div class="table-responsive"><table class="table table-hover mb-0">
+    <thead class="bg-light"><tr><th>Name</th><th>Email</th><th>Team</th></tr></thead>
+    <tbody>
+        @foreach(var item in Model) {
+            <tr><td><div class="fw-medium">@item.FirstName @item.LastName</div></td><td>@item.Email</td><td>@item.Team</td></tr>
+        }
+    </tbody>
+</table></div></div></div>

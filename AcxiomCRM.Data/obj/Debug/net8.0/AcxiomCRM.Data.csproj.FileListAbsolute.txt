@@ -1,0 +1,12 @@
+D:\acxiom\AcxiomCRM.Data\bin\Debug\net8.0\AcxiomCRM.Data.deps.json
+D:\acxiom\AcxiomCRM.Data\bin\Debug\net8.0\AcxiomCRM.Data.dll
+D:\acxiom\AcxiomCRM.Data\bin\Debug\net8.0\AcxiomCRM.Data.pdb
+D:\acxiom\AcxiomCRM.Data\obj\Debug\net8.0\AcxiomCRM.Data.csproj.AssemblyReference.cache
+D:\acxiom\AcxiomCRM.Data\obj\Debug\net8.0\AcxiomCRM.Data.GeneratedMSBuildEditorConfig.editorconfig
+D:\acxiom\AcxiomCRM.Data\obj\Debug\net8.0\AcxiomCRM.Data.AssemblyInfoInputs.cache
+D:\acxiom\AcxiomCRM.Data\obj\Debug\net8.0\AcxiomCRM.Data.AssemblyInfo.cs
+D:\acxiom\AcxiomCRM.Data\obj\Debug\net8.0\AcxiomCRM.Data.csproj.CoreCompileInputs.cache
+D:\acxiom\AcxiomCRM.Data\obj\Debug\net8.0\AcxiomCRM.Data.dll
+D:\acxiom\AcxiomCRM.Data\obj\Debug\net8.0\refint\AcxiomCRM.Data.dll
+D:\acxiom\AcxiomCRM.Data\obj\Debug\net8.0\AcxiomCRM.Data.pdb
+D:\acxiom\AcxiomCRM.Data\obj\Debug\net8.0\ref\AcxiomCRM.Data.dll
